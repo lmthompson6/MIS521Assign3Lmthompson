@@ -1,0 +1,27 @@
+﻿@model MIS521Assign3Lmthompson.Models.Movie
+
+<div>
+    <h4 onload="populate()">Today's Featured Film:</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10" id="movieTitle">
+            
+        </dd>
+        <dt class = "col-sm-2">
+            Year of Release
+        </dt>
+        <dd class = "col-sm-10" id="movieRelease">
+            
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Poster)
+        </dt>
+        <dd class = "col-sm-10" id="moviePoster">
+            
+        </dd>
+    </dl>
+</div>
+<script src="~/js/site.js"></script>
