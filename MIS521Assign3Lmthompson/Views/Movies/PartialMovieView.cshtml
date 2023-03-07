@@ -1,27 +1,19 @@
-﻿@model MIS521Assign3Lmthompson.Models.Movie
+﻿@model MIS521Assign3Lmthompson.Models.MovieTweetsVM
 
-<div>
-    <h4 onload="populate()">Today's Featured Film:</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd class = "col-sm-10" id="movieTitle">
-            
-        </dd>
-        <dt class = "col-sm-2">
-            Year of Release
-        </dt>
-        <dd class = "col-sm-10" id="movieRelease">
-            
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Poster)
-        </dt>
-        <dd class = "col-sm-10" id="moviePoster">
-            
-        </dd>
-    </dl>
+@{
+    ViewData["Title"] = "Details";
+}
+@{
+    var r = new Random();
+    var randomNumber = r.Next(3,6);
+}
+<h4 style="text-align:center">Today's Feature Film</h4>
+<div class="card" style="width: 18rem; margin:auto">
+    <img class="card-img-top" src="@Url.Action("GetMoviePoster", "Movies", new { id = randomNumber })" alt="Card image cap">
+  <div class="card-body" style="color:black">
+    <h5 class="card-title" id="movieTitle" style="text-align:center">Card title</h5>
+    <p class="card-text" id="movieRelease"></p>
+    <a href="/Movies/Details/@randomNumber" class="btn btn-primary">See Details</a>
+  </div>
 </div>
-<script src="~/js/site.js"></script>
+<script src="~/js/site.js" onload="populate(@randomNumber)" asp-append-version="true"></script>

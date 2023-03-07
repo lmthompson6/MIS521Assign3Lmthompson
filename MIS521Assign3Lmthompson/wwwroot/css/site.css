@@ -41,6 +41,25 @@ select {
     color:white
 }
 
-input {
-    background-color:white
+input, textarea {
+    background-color: white;
+}
+input[type="search"]{
+    color:white;
+}
+
+option{
+    color:black;
+}
+
+pre{
+    color:white;
+}
+.card-text{
+    text-align:center;
+}
+.card{
+    background-color:grey;
+    border: 15px double crimson;
+    text-align:center;
 }

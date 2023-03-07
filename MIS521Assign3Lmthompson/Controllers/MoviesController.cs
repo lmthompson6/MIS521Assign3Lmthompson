@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MIS521Assign3Lmthompson.Data;
@@ -109,6 +111,28 @@ namespace MIS521Assign3Lmthompson.Controllers
             }
             var imageData = movie.Poster;
             return File(imageData, "image/jpg");
+        }
+        public async Task<IActionResult> GetMovieTitle(int id)
+        {
+            var movie = await _context.Movie.FirstOrDefaultAsync(m => m.Id == id);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+            var titlesend = movie.Title;
+            
+            return Content(titlesend);
+        }
+        public async Task<IActionResult> GetMovieYear(int id)
+        {
+            var movie = await _context.Movie.FirstOrDefaultAsync(m => m.Id == id);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+            var yearSend = movie.YearOfRelease;
+
+            return Content(yearSend);
         }
 
         public async Task<IActionResult> Edit(int? id)

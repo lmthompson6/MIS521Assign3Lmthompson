@@ -1,16 +1,23 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿
+async function populate(random) {
+    try {
+        await fetch('https://mis521assignment3lmthompson.azurewebsites.net/Movies/GetMovieTitle/' + random).then(response => response.text()).then(text =>
+            document.getElementById("movieTitle").innerText = text);
+    }
+    catch (e){
+        fetch('https://localhost:7046/Movies/GetMovieTitle/' + random).then(response => response.text()).then(text =>
+            document.getElementById("movieTitle").innerText = text);
+    }
 
-// Write your JavaScript code.
+    try {
+        await fetch('https://mis521assignment3lmthompson.azurewebsites.net/Movies/GetMovieYear/' + random).then(response => response.text()).then(text =>
+            document.getElementById("movieRelease").innerText = text);
+    }
+    catch {
+    fetch('https://localhost:7046/Movies/GetMovieYear/' + random).then(response => response.text()).then(text =>
+        document.getElementById("movieRelease").innerText = text);
+    }
 
-/*$(document).ready(function () {
-    $('table').DataTable();
-});*/
 
-//var userClient = new TwitterClient("AAx9UfdCemph0Pg0t8Moq5c6L", "LbhoERpFGjBESYSNjTHuRvE0R80cGxZBx5lJWanM5lFpO2Hs63", "1455230009153503238-WTxQgoYUAQ3D9PTSsUu8stHkmJvuVe", "2ZVnM9tWbCSNAhyJcyC4WPIgiIbUWZ77MTLSx2Qb8TkW3");
-
-
-async function populate() {
-    console.log("this is a test")
 }
 
